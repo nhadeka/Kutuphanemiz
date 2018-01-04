@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KutuphanemizDataSet" targetNamespace="http://tempuri.org/KutuphanemizDataSet.xsd" xmlns:mstns="http://tempuri.org/KutuphanemizDataSet.xsd" xmlns="http://tempuri.org/KutuphanemizDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="KutuphanemizConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="KutuphanemizConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Kutuphanemiz.UI.Properties.Settings.GlobalReference.Default.KutuphanemizConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KullanicilarRaporTableAdapter" GeneratorDataComponentClassName="KullanicilarRaporTableAdapter" Name="KullanicilarRapor" UserDataComponentName="KullanicilarRaporTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KullanicilarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillTumKullanicilar" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="FillTumKullanicilar" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="FillTumKullanicilar">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT KullaniciID, TCKNo, KullaniciTuru, Kullanici, TelNo, Adres, Ilce, Il, Eposta, Sifre, KayitTarihi, Silindi FROM dbo.KullanicilarRapor</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KullaniciID" DataSetColumn="KullaniciID" />
+              <Mapping SourceColumn="TCKNo" DataSetColumn="TCKNo" />
+              <Mapping SourceColumn="KullaniciTuru" DataSetColumn="KullaniciTuru" />
+              <Mapping SourceColumn="Kullanici" DataSetColumn="Kullanici" />
+              <Mapping SourceColumn="TelNo" DataSetColumn="TelNo" />
+              <Mapping SourceColumn="Adres" DataSetColumn="Adres" />
+              <Mapping SourceColumn="Ilce" DataSetColumn="Ilce" />
+              <Mapping SourceColumn="Il" DataSetColumn="Il" />
+              <Mapping SourceColumn="Eposta" DataSetColumn="Eposta" />
+              <Mapping SourceColumn="Sifre" DataSetColumn="Sifre" />
+              <Mapping SourceColumn="KayitTarihi" DataSetColumn="KayitTarihi" />
+              <Mapping SourceColumn="Silindi" DataSetColumn="Silindi" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KullanicilarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByAdminler" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillByAdminler" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByAdminler">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Adres, Eposta, Il, Ilce, KayitTarihi, Kullanici, KullaniciID, KullaniciTuru, Sifre, Silindi, TCKNo, TelNo FROM KullanicilarRapor WHERE (KullaniciTuru = 'admin')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KullanicilarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByKayitliUyeler" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillByKayitliUyeler" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByKayitliUyeler">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Adres, Eposta, Il, Ilce, KayitTarihi, Kullanici, KullaniciID, KullaniciTuru, Sifre, Silindi, TCKNo, TelNo FROM KullanicilarRapor WHERE (KullaniciTuru = 'üye') AND (Silindi = 'false')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KullanicilarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByKullanici" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy3" GeneratorSourceName="FillByKullanici" GetMethodModifier="Public" GetMethodName="GetDataBy3" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByKullanici">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Adres, Eposta, Il, Ilce, KayitTarihi, Kullanici, KullaniciID, KullaniciTuru, Sifre, Silindi, TCKNo, TelNo FROM KullanicilarRapor WHERE (Kullanici LIKE '%' + @kullanici + '%')</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="kullanici" ColumnName="Kullanici" DataSourceName="Kutuphanemiz.dbo.KullanicilarRapor" DataTypeServer="varchar(101)" DbType="AnsiString" Direction="Input" ParameterName="@kullanici" Precision="0" ProviderType="VarChar" Scale="0" Size="101" SourceColumn="Kullanici" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KullanicilarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBySilinmisUyeler" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FillBySilinmisUyeler" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillBySilinmisUyeler">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Adres, Eposta, Il, Ilce, KayitTarihi, Kullanici, KullaniciID, KullaniciTuru, Sifre, Silindi, TCKNo, TelNo FROM KullanicilarRapor WHERE (KullaniciTuru = 'üye') AND (Silindi = 'true')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KitaplarRaporTableAdapter" GeneratorDataComponentClassName="KitaplarRaporTableAdapter" Name="KitaplarRapor" UserDataComponentName="KitaplarRaporTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KitaplarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillKayitliKitaplar" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="FillKayitliKitaplar" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="FillKayitliKitaplar">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Durum, KitapID, Barkod, KitapAd, KategoriAd, Yazar, YayineviAd, Silindi, KategoriID, YazarID, YayineviID, RafNo FROM dbo.KitaplarRapor
+where silindi='false'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Durum" DataSetColumn="Durum" />
+              <Mapping SourceColumn="KitapID" DataSetColumn="KitapID" />
+              <Mapping SourceColumn="Barkod" DataSetColumn="Barkod" />
+              <Mapping SourceColumn="KitapAd" DataSetColumn="KitapAd" />
+              <Mapping SourceColumn="KategoriAd" DataSetColumn="KategoriAd" />
+              <Mapping SourceColumn="Yazar" DataSetColumn="Yazar" />
+              <Mapping SourceColumn="YayineviAd" DataSetColumn="YayineviAd" />
+              <Mapping SourceColumn="Silindi" DataSetColumn="Silindi" />
+              <Mapping SourceColumn="KategoriID" DataSetColumn="KategoriID" />
+              <Mapping SourceColumn="YazarID" DataSetColumn="YazarID" />
+              <Mapping SourceColumn="YayineviID" DataSetColumn="YayineviID" />
+              <Mapping SourceColumn="RafNo" DataSetColumn="RafNo" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KitaplarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByKitapAd" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillByKitapAd" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByKitapAd">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Durum, KitapID, Barkod, KitapAd, KategoriAd, Yazar, YayineviAd, Silindi, KategoriID, YazarID, YayineviID, RafNo FROM dbo.KitaplarRapor
+where KitapAd like '%'+@KitapAd+'%'</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="KitapAd" ColumnName="KitapAd" DataSourceName="Kutuphanemiz.dbo.KitaplarRapor" DataTypeServer="varchar(MAX)" DbType="AnsiString" Direction="Input" ParameterName="@KitapAd" Precision="0" ProviderType="VarChar" Scale="0" Size="2147483647" SourceColumn="KitapAd" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KitaplarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBySilinmisKitaplar" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBySilinmisKitaplar" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBySilinmisKitaplar">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Barkod, Durum, KategoriAd, KategoriID, KitapAd, KitapID, RafNo, Silindi, YayineviAd, YayineviID, Yazar, YazarID FROM KitaplarRapor WHERE (Silindi = 'true')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.KitaplarRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByYazar" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy2" GeneratorSourceName="FillByYazar" GetMethodModifier="Public" GetMethodName="GetDataBy2" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByYazar">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Durum, KitapID, Barkod, KitapAd, KategoriAd, Yazar, YayineviAd, Silindi, KategoriID, YazarID, YayineviID, RafNo FROM dbo.KitaplarRapor
+where Yazar like '%'+@yazar+'%'</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="yazar" ColumnName="Yazar" DataSourceName="Kutuphanemiz.dbo.KitaplarRapor" DataTypeServer="varchar(101)" DbType="AnsiString" Direction="Input" ParameterName="@yazar" Precision="0" ProviderType="VarChar" Scale="0" Size="101" SourceColumn="Yazar" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EmanetlerRaporTableAdapter" GeneratorDataComponentClassName="EmanetlerRaporTableAdapter" Name="EmanetlerRapor" UserDataComponentName="EmanetlerRaporTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.EmanetlerRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Durum, EmanetID, KullaniciID, KitapID, Uye, KategoriAd, KitapAd, Yazar, YayineviAd, Silindi, KVerilisTarihi, KIEdilecekTarih, BirimCeza, KIEdildigiTarih, GGunSayisi, ToplamCeza, Barkod FROM dbo.EmanetlerRapor
+where silindi='false'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Durum" DataSetColumn="Durum" />
+              <Mapping SourceColumn="EmanetID" DataSetColumn="EmanetID" />
+              <Mapping SourceColumn="KullaniciID" DataSetColumn="KullaniciID" />
+              <Mapping SourceColumn="KitapID" DataSetColumn="KitapID" />
+              <Mapping SourceColumn="Uye" DataSetColumn="Uye" />
+              <Mapping SourceColumn="KategoriAd" DataSetColumn="KategoriAd" />
+              <Mapping SourceColumn="KitapAd" DataSetColumn="KitapAd" />
+              <Mapping SourceColumn="Yazar" DataSetColumn="Yazar" />
+              <Mapping SourceColumn="YayineviAd" DataSetColumn="YayineviAd" />
+              <Mapping SourceColumn="Silindi" DataSetColumn="Silindi" />
+              <Mapping SourceColumn="KVerilisTarihi" DataSetColumn="KVerilisTarihi" />
+              <Mapping SourceColumn="KIEdilecekTarih" DataSetColumn="KIEdilecekTarih" />
+              <Mapping SourceColumn="BirimCeza" DataSetColumn="BirimCeza" />
+              <Mapping SourceColumn="KIEdildigiTarih" DataSetColumn="KIEdildigiTarih" />
+              <Mapping SourceColumn="GGunSayisi" DataSetColumn="GGunSayisi" />
+              <Mapping SourceColumn="ToplamCeza" DataSetColumn="ToplamCeza" />
+              <Mapping SourceColumn="Barkod" DataSetColumn="Barkod" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="KutuphanemizConnectionString (Settings)" DbObjectName="Kutuphanemiz.dbo.EmanetlerRapor" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Durum, EmanetID, KullaniciID, KitapID, Uye, KategoriAd, KitapAd, Yazar, YayineviAd, Silindi, KVerilisTarihi, KIEdilecekTarih, BirimCeza, KIEdildigiTarih, GGunSayisi, ToplamCeza, Barkod FROM dbo.EmanetlerRapor
+where silindi='true'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KutuphanemizDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="KutuphanemizDataSet" msprop:Generator_UserDSName="KutuphanemizDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="KullanicilarRapor" msprop:Generator_TableClassName="KullanicilarRaporDataTable" msprop:Generator_TableVarName="tableKullanicilarRapor" msprop:Generator_TablePropName="KullanicilarRapor" msprop:Generator_RowDeletingName="KullanicilarRaporRowDeleting" msprop:Generator_RowChangingName="KullanicilarRaporRowChanging" msprop:Generator_RowEvHandlerName="KullanicilarRaporRowChangeEventHandler" msprop:Generator_RowDeletedName="KullanicilarRaporRowDeleted" msprop:Generator_UserTableName="KullanicilarRapor" msprop:Generator_RowChangedName="KullanicilarRaporRowChanged" msprop:Generator_RowEvArgName="KullanicilarRaporRowChangeEvent" msprop:Generator_RowClassName="KullanicilarRaporRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KullaniciID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnKullaniciID" msprop:Generator_ColumnPropNameInRow="KullaniciID" msprop:Generator_ColumnPropNameInTable="KullaniciIDColumn" msprop:Generator_UserColumnName="KullaniciID" type="xs:int" />
+              <xs:element name="TCKNo" msprop:Generator_ColumnVarNameInTable="columnTCKNo" msprop:Generator_ColumnPropNameInRow="TCKNo" msprop:Generator_ColumnPropNameInTable="TCKNoColumn" msprop:Generator_UserColumnName="TCKNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KullaniciTuru" msprop:Generator_ColumnVarNameInTable="columnKullaniciTuru" msprop:Generator_ColumnPropNameInRow="KullaniciTuru" msprop:Generator_ColumnPropNameInTable="KullaniciTuruColumn" msprop:Generator_UserColumnName="KullaniciTuru">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Kullanici" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnKullanici" msprop:Generator_ColumnPropNameInRow="Kullanici" msprop:Generator_ColumnPropNameInTable="KullaniciColumn" msprop:Generator_UserColumnName="Kullanici" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TelNo" msprop:Generator_ColumnVarNameInTable="columnTelNo" msprop:Generator_ColumnPropNameInRow="TelNo" msprop:Generator_ColumnPropNameInTable="TelNoColumn" msprop:Generator_UserColumnName="TelNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Adres" msprop:Generator_ColumnVarNameInTable="columnAdres" msprop:Generator_ColumnPropNameInRow="Adres" msprop:Generator_ColumnPropNameInTable="AdresColumn" msprop:Generator_UserColumnName="Adres">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Ilce" msprop:Generator_ColumnVarNameInTable="columnIlce" msprop:Generator_ColumnPropNameInRow="Ilce" msprop:Generator_ColumnPropNameInTable="IlceColumn" msprop:Generator_UserColumnName="Ilce">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Il" msprop:Generator_ColumnVarNameInTable="columnIl" msprop:Generator_ColumnPropNameInRow="Il" msprop:Generator_ColumnPropNameInTable="IlColumn" msprop:Generator_UserColumnName="Il">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Eposta" msprop:Generator_ColumnVarNameInTable="columnEposta" msprop:Generator_ColumnPropNameInRow="Eposta" msprop:Generator_ColumnPropNameInTable="EpostaColumn" msprop:Generator_UserColumnName="Eposta">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Sifre" msprop:Generator_ColumnVarNameInTable="columnSifre" msprop:Generator_ColumnPropNameInRow="Sifre" msprop:Generator_ColumnPropNameInTable="SifreColumn" msprop:Generator_UserColumnName="Sifre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KayitTarihi" msprop:Generator_ColumnVarNameInTable="columnKayitTarihi" msprop:Generator_ColumnPropNameInRow="KayitTarihi" msprop:Generator_ColumnPropNameInTable="KayitTarihiColumn" msprop:Generator_UserColumnName="KayitTarihi" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Silindi" msprop:Generator_ColumnVarNameInTable="columnSilindi" msprop:Generator_ColumnPropNameInRow="Silindi" msprop:Generator_ColumnPropNameInTable="SilindiColumn" msprop:Generator_UserColumnName="Silindi" type="xs:boolean" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="KitaplarRapor" msprop:Generator_TableClassName="KitaplarRaporDataTable" msprop:Generator_TableVarName="tableKitaplarRapor" msprop:Generator_RowChangedName="KitaplarRaporRowChanged" msprop:Generator_TablePropName="KitaplarRapor" msprop:Generator_RowDeletingName="KitaplarRaporRowDeleting" msprop:Generator_RowChangingName="KitaplarRaporRowChanging" msprop:Generator_RowEvHandlerName="KitaplarRaporRowChangeEventHandler" msprop:Generator_RowDeletedName="KitaplarRaporRowDeleted" msprop:Generator_RowClassName="KitaplarRaporRow" msprop:Generator_UserTableName="KitaplarRapor" msprop:Generator_RowEvArgName="KitaplarRaporRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Durum" msprop:Generator_ColumnVarNameInTable="columnDurum" msprop:Generator_ColumnPropNameInRow="Durum" msprop:Generator_ColumnPropNameInTable="DurumColumn" msprop:Generator_UserColumnName="Durum">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KitapID" msprop:Generator_ColumnVarNameInTable="columnKitapID" msprop:Generator_ColumnPropNameInRow="KitapID" msprop:Generator_ColumnPropNameInTable="KitapIDColumn" msprop:Generator_UserColumnName="KitapID" type="xs:int" />
+              <xs:element name="Barkod" msprop:Generator_ColumnVarNameInTable="columnBarkod" msprop:Generator_ColumnPropNameInRow="Barkod" msprop:Generator_ColumnPropNameInTable="BarkodColumn" msprop:Generator_UserColumnName="Barkod">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KitapAd" msprop:Generator_ColumnVarNameInTable="columnKitapAd" msprop:Generator_ColumnPropNameInRow="KitapAd" msprop:Generator_ColumnPropNameInTable="KitapAdColumn" msprop:Generator_UserColumnName="KitapAd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KategoriAd" msprop:Generator_ColumnVarNameInTable="columnKategoriAd" msprop:Generator_ColumnPropNameInRow="KategoriAd" msprop:Generator_ColumnPropNameInTable="KategoriAdColumn" msprop:Generator_UserColumnName="KategoriAd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Yazar" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnYazar" msprop:Generator_ColumnPropNameInRow="Yazar" msprop:Generator_ColumnPropNameInTable="YazarColumn" msprop:Generator_UserColumnName="Yazar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YayineviAd" msprop:Generator_ColumnVarNameInTable="columnYayineviAd" msprop:Generator_ColumnPropNameInRow="YayineviAd" msprop:Generator_ColumnPropNameInTable="YayineviAdColumn" msprop:Generator_UserColumnName="YayineviAd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Silindi" msprop:Generator_ColumnVarNameInTable="columnSilindi" msprop:Generator_ColumnPropNameInRow="Silindi" msprop:Generator_ColumnPropNameInTable="SilindiColumn" msprop:Generator_UserColumnName="Silindi" type="xs:boolean" />
+              <xs:element name="KategoriID" msprop:Generator_ColumnVarNameInTable="columnKategoriID" msprop:Generator_ColumnPropNameInRow="KategoriID" msprop:Generator_ColumnPropNameInTable="KategoriIDColumn" msprop:Generator_UserColumnName="KategoriID" type="xs:int" />
+              <xs:element name="YazarID" msprop:Generator_ColumnVarNameInTable="columnYazarID" msprop:Generator_ColumnPropNameInRow="YazarID" msprop:Generator_ColumnPropNameInTable="YazarIDColumn" msprop:Generator_UserColumnName="YazarID" type="xs:int" />
+              <xs:element name="YayineviID" msprop:Generator_ColumnVarNameInTable="columnYayineviID" msprop:Generator_ColumnPropNameInRow="YayineviID" msprop:Generator_ColumnPropNameInTable="YayineviIDColumn" msprop:Generator_UserColumnName="YayineviID" type="xs:int" />
+              <xs:element name="RafNo" msprop:Generator_ColumnVarNameInTable="columnRafNo" msprop:Generator_ColumnPropNameInRow="RafNo" msprop:Generator_ColumnPropNameInTable="RafNoColumn" msprop:Generator_UserColumnName="RafNo">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmanetlerRapor" msprop:Generator_TableClassName="EmanetlerRaporDataTable" msprop:Generator_TableVarName="tableEmanetlerRapor" msprop:Generator_TablePropName="EmanetlerRapor" msprop:Generator_RowDeletingName="EmanetlerRaporRowDeleting" msprop:Generator_RowChangingName="EmanetlerRaporRowChanging" msprop:Generator_RowEvHandlerName="EmanetlerRaporRowChangeEventHandler" msprop:Generator_RowDeletedName="EmanetlerRaporRowDeleted" msprop:Generator_UserTableName="EmanetlerRapor" msprop:Generator_RowChangedName="EmanetlerRaporRowChanged" msprop:Generator_RowEvArgName="EmanetlerRaporRowChangeEvent" msprop:Generator_RowClassName="EmanetlerRaporRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Durum" msprop:Generator_ColumnVarNameInTable="columnDurum" msprop:Generator_ColumnPropNameInRow="Durum" msprop:Generator_ColumnPropNameInTable="DurumColumn" msprop:Generator_UserColumnName="Durum">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmanetID" msprop:Generator_ColumnVarNameInTable="columnEmanetID" msprop:Generator_ColumnPropNameInRow="EmanetID" msprop:Generator_ColumnPropNameInTable="EmanetIDColumn" msprop:Generator_UserColumnName="EmanetID" type="xs:int" />
+              <xs:element name="KullaniciID" msprop:Generator_ColumnVarNameInTable="columnKullaniciID" msprop:Generator_ColumnPropNameInRow="KullaniciID" msprop:Generator_ColumnPropNameInTable="KullaniciIDColumn" msprop:Generator_UserColumnName="KullaniciID" type="xs:int" />
+              <xs:element name="KitapID" msprop:Generator_ColumnVarNameInTable="columnKitapID" msprop:Generator_ColumnPropNameInRow="KitapID" msprop:Generator_ColumnPropNameInTable="KitapIDColumn" msprop:Generator_UserColumnName="KitapID" type="xs:int" />
+              <xs:element name="Uye" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUye" msprop:Generator_ColumnPropNameInRow="Uye" msprop:Generator_ColumnPropNameInTable="UyeColumn" msprop:Generator_UserColumnName="Uye" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KategoriAd" msprop:Generator_ColumnVarNameInTable="columnKategoriAd" msprop:Generator_ColumnPropNameInRow="KategoriAd" msprop:Generator_ColumnPropNameInTable="KategoriAdColumn" msprop:Generator_UserColumnName="KategoriAd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KitapAd" msprop:Generator_ColumnVarNameInTable="columnKitapAd" msprop:Generator_ColumnPropNameInRow="KitapAd" msprop:Generator_ColumnPropNameInTable="KitapAdColumn" msprop:Generator_UserColumnName="KitapAd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Yazar" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnYazar" msprop:Generator_ColumnPropNameInRow="Yazar" msprop:Generator_ColumnPropNameInTable="YazarColumn" msprop:Generator_UserColumnName="Yazar" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="YayineviAd" msprop:Generator_ColumnVarNameInTable="columnYayineviAd" msprop:Generator_ColumnPropNameInRow="YayineviAd" msprop:Generator_ColumnPropNameInTable="YayineviAdColumn" msprop:Generator_UserColumnName="YayineviAd">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Silindi" msprop:Generator_ColumnVarNameInTable="columnSilindi" msprop:Generator_ColumnPropNameInRow="Silindi" msprop:Generator_ColumnPropNameInTable="SilindiColumn" msprop:Generator_UserColumnName="Silindi" type="xs:boolean" />
+              <xs:element name="KVerilisTarihi" msprop:Generator_ColumnVarNameInTable="columnKVerilisTarihi" msprop:Generator_ColumnPropNameInRow="KVerilisTarihi" msprop:Generator_ColumnPropNameInTable="KVerilisTarihiColumn" msprop:Generator_UserColumnName="KVerilisTarihi" type="xs:dateTime" />
+              <xs:element name="KIEdilecekTarih" msprop:Generator_ColumnVarNameInTable="columnKIEdilecekTarih" msprop:Generator_ColumnPropNameInRow="KIEdilecekTarih" msprop:Generator_ColumnPropNameInTable="KIEdilecekTarihColumn" msprop:Generator_UserColumnName="KIEdilecekTarih" type="xs:dateTime" />
+              <xs:element name="BirimCeza" msprop:Generator_ColumnVarNameInTable="columnBirimCeza" msprop:Generator_ColumnPropNameInRow="BirimCeza" msprop:Generator_ColumnPropNameInTable="BirimCezaColumn" msprop:Generator_UserColumnName="BirimCeza" type="xs:decimal" />
+              <xs:element name="KIEdildigiTarih" msprop:Generator_ColumnVarNameInTable="columnKIEdildigiTarih" msprop:Generator_ColumnPropNameInRow="KIEdildigiTarih" msprop:Generator_ColumnPropNameInTable="KIEdildigiTarihColumn" msprop:Generator_UserColumnName="KIEdildigiTarih" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="GGunSayisi" msprop:Generator_ColumnVarNameInTable="columnGGunSayisi" msprop:Generator_ColumnPropNameInRow="GGunSayisi" msprop:Generator_ColumnPropNameInTable="GGunSayisiColumn" msprop:Generator_UserColumnName="GGunSayisi" type="xs:int" minOccurs="0" />
+              <xs:element name="ToplamCeza" msprop:Generator_ColumnVarNameInTable="columnToplamCeza" msprop:Generator_ColumnPropNameInRow="ToplamCeza" msprop:Generator_ColumnPropNameInTable="ToplamCezaColumn" msprop:Generator_UserColumnName="ToplamCeza" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Barkod" msprop:Generator_ColumnVarNameInTable="columnBarkod" msprop:Generator_ColumnPropNameInRow="Barkod" msprop:Generator_ColumnPropNameInTable="BarkodColumn" msprop:Generator_UserColumnName="Barkod">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KullanicilarRapor" />
+      <xs:field xpath="mstns:KullaniciID" />
+    </xs:unique>
+    <xs:unique name="KitaplarRapor_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:KitaplarRapor" />
+      <xs:field xpath="mstns:KitapID" />
+      <xs:field xpath="mstns:KategoriID" />
+      <xs:field xpath="mstns:YazarID" />
+      <xs:field xpath="mstns:YayineviID" />
+    </xs:unique>
+    <xs:unique name="EmanetlerRapor_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EmanetlerRapor" />
+      <xs:field xpath="mstns:EmanetID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

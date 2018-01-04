@@ -1,0 +1,865 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KutuphanemizModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cezalar">
+          <Key>
+            <PropertyRef Name="CezaID" />
+          </Key>
+          <Property Name="CezaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmanetID" Type="int" Nullable="false" />
+          <Property Name="BirimCeza" Type="money" Nullable="false" />
+          <Property Name="GGunSayisi" Type="int" Nullable="false" />
+          <Property Name="ToplamCeza" Type="money" Nullable="false" />
+          <Property Name="Silindi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Emanetler">
+          <Key>
+            <PropertyRef Name="EmanetID" />
+          </Key>
+          <Property Name="EmanetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="KitapID" Type="int" Nullable="false" />
+          <Property Name="KVerilisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="KIEdilecekTarih" Type="datetime" Nullable="false" />
+          <Property Name="KIEdildigiTarih" Type="datetime" />
+          <Property Name="BirimCeza" Type="money" Nullable="false" />
+          <Property Name="GGunSayisi" Type="int" />
+          <Property Name="ToplamCeza" Type="money" />
+          <Property Name="Silindi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="KategoriID" />
+          </Key>
+          <Property Name="KategoriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RafNo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kitaplar">
+          <Key>
+            <PropertyRef Name="KitapID" />
+          </Key>
+          <Property Name="KitapID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Barkod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="KitapAd" Type="varchar(max)" Nullable="false" />
+          <Property Name="YayineviID" Type="int" Nullable="false" />
+          <Property Name="YazarID" Type="int" Nullable="false" />
+          <Property Name="KategoriID" Type="int" Nullable="false" />
+          <Property Name="Adet" Type="int" Nullable="false" />
+          <Property Name="Durum" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EkTarihi" Type="datetime" Nullable="false" />
+          <Property Name="Silindi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TCKNo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="KullaniciTuru" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Adres" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ilce" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Il" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Eposta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="KayitTarihi" Type="datetime" Nullable="false" />
+          <Property Name="Silindi" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Yayinevleri">
+          <Key>
+            <PropertyRef Name="YayineviID" />
+          </Key>
+          <Property Name="YayineviID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YayineviAd" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Yazarlar">
+          <Key>
+            <PropertyRef Name="YazarID" />
+          </Key>
+          <Property Name="YazarID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YazarAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="YazarSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Kutuphanemiz.dbo.EmanetlerView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmanetlerView">
+          <Key>
+            <PropertyRef Name="EmanetID" />
+            <PropertyRef Name="KullaniciID" />
+            <PropertyRef Name="KitapID" />
+            <PropertyRef Name="Ad" />
+            <PropertyRef Name="Soyad" />
+            <PropertyRef Name="KategoriAd" />
+            <PropertyRef Name="KitapAd" />
+            <PropertyRef Name="Yazar" />
+            <PropertyRef Name="YayineviAd" />
+            <PropertyRef Name="Silindi" />
+            <PropertyRef Name="KVerilisTarihi" />
+            <PropertyRef Name="KIEdilecekTarih" />
+            <PropertyRef Name="BirimCeza" />
+            <PropertyRef Name="Barkod" />
+          </Key>
+          <Property Name="EmanetID" Type="int" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="KitapID" Type="int" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KategoriAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KitapAd" Type="varchar(max)" Nullable="false" />
+          <Property Name="Yazar" Type="varchar" MaxLength="101" Nullable="false" />
+          <Property Name="YayineviAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Silindi" Type="bit" Nullable="false" />
+          <Property Name="KVerilisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="KIEdilecekTarih" Type="datetime" Nullable="false" />
+          <Property Name="BirimCeza" Type="money" Nullable="false" />
+          <Property Name="KIEdildigiTarih" Type="datetime" />
+          <Property Name="GGunSayisi" Type="int" />
+          <Property Name="ToplamCeza" Type="money" />
+          <Property Name="Barkod" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Kutuphanemiz.dbo.KitaplarView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="KitaplarView">
+          <Key>
+            <PropertyRef Name="Durum" />
+            <PropertyRef Name="KitapID" />
+            <PropertyRef Name="Barkod" />
+            <PropertyRef Name="KitapAd" />
+            <PropertyRef Name="KategoriAd" />
+            <PropertyRef Name="YazarAd" />
+            <PropertyRef Name="YazarSoyad" />
+            <PropertyRef Name="YayineviAd" />
+            <PropertyRef Name="Silindi" />
+            <PropertyRef Name="KategoriID" />
+            <PropertyRef Name="YazarID" />
+            <PropertyRef Name="YayineviID" />
+            <PropertyRef Name="RafNo" />
+          </Key>
+          <Property Name="Durum" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="KitapID" Type="int" Nullable="false" />
+          <Property Name="Barkod" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="KitapAd" Type="varchar(max)" Nullable="false" />
+          <Property Name="KategoriAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="YazarAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="YazarSoyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="YayineviAd" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Silindi" Type="bit" Nullable="false" />
+          <Property Name="KategoriID" Type="int" Nullable="false" />
+          <Property Name="YazarID" Type="int" Nullable="false" />
+          <Property Name="YayineviID" Type="int" Nullable="false" />
+          <Property Name="RafNo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Kutuphanemiz.dbo.KullanicilarView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="KullanicilarView">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+            <PropertyRef Name="TCKNo" />
+            <PropertyRef Name="KullaniciTuru" />
+            <PropertyRef Name="Ad" />
+            <PropertyRef Name="Soyad" />
+            <PropertyRef Name="TelNo" />
+            <PropertyRef Name="Adres" />
+            <PropertyRef Name="Ilce" />
+            <PropertyRef Name="Il" />
+            <PropertyRef Name="Eposta" />
+            <PropertyRef Name="Sifre" />
+            <PropertyRef Name="KayitTarihi" />
+            <PropertyRef Name="Silindi" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TCKNo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="KullaniciTuru" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Soyad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TelNo" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="Adres" Type="varchar(max)" Nullable="false" />
+          <Property Name="Ilce" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Il" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Eposta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifre" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="KayitTarihi" Type="datetime" Nullable="false" />
+          <Property Name="Silindi" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cezalar_Emanetler">
+          <End Role="Emanetler" Type="Self.Emanetler" Multiplicity="1" />
+          <End Role="Cezalar" Type="Self.Cezalar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emanetler">
+              <PropertyRef Name="EmanetID" />
+            </Principal>
+            <Dependent Role="Cezalar">
+              <PropertyRef Name="EmanetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emanetler_Kitaplar">
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="1" />
+          <End Role="Emanetler" Type="Self.Emanetler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kitaplar">
+              <PropertyRef Name="KitapID" />
+            </Principal>
+            <Dependent Role="Emanetler">
+              <PropertyRef Name="KitapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emanetler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="Emanetler" Type="Self.Emanetler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Emanetler">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kitaplar_Kategoriler">
+          <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="1" />
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="KategoriID" />
+            </Principal>
+            <Dependent Role="Kitaplar">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kitaplar_Yayinevleri">
+          <End Role="Yayinevleri" Type="Self.Yayinevleri" Multiplicity="1" />
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yayinevleri">
+              <PropertyRef Name="YayineviID" />
+            </Principal>
+            <Dependent Role="Kitaplar">
+              <PropertyRef Name="YayineviID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kitaplar_Yazarlar">
+          <End Role="Yazarlar" Type="Self.Yazarlar" Multiplicity="1" />
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yazarlar">
+              <PropertyRef Name="YazarID" />
+            </Principal>
+            <Dependent Role="Kitaplar">
+              <PropertyRef Name="YazarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KutuphanemizModelStoreContainer">
+          <EntitySet Name="Cezalar" EntityType="Self.Cezalar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Emanetler" EntityType="Self.Emanetler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kitaplar" EntityType="Self.Kitaplar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yayinevleri" EntityType="Self.Yayinevleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Yazarlar" EntityType="Self.Yazarlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmanetlerView" EntityType="Self.EmanetlerView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmanetlerView].[EmanetID] AS [EmanetID], 
+    [EmanetlerView].[KullaniciID] AS [KullaniciID], 
+    [EmanetlerView].[KitapID] AS [KitapID], 
+    [EmanetlerView].[Ad] AS [Ad], 
+    [EmanetlerView].[Soyad] AS [Soyad], 
+    [EmanetlerView].[KategoriAd] AS [KategoriAd], 
+    [EmanetlerView].[KitapAd] AS [KitapAd], 
+    [EmanetlerView].[Yazar] AS [Yazar], 
+    [EmanetlerView].[YayineviAd] AS [YayineviAd], 
+    [EmanetlerView].[Silindi] AS [Silindi], 
+    [EmanetlerView].[KVerilisTarihi] AS [KVerilisTarihi], 
+    [EmanetlerView].[KIEdilecekTarih] AS [KIEdilecekTarih], 
+    [EmanetlerView].[BirimCeza] AS [BirimCeza], 
+    [EmanetlerView].[KIEdildigiTarih] AS [KIEdildigiTarih], 
+    [EmanetlerView].[GGunSayisi] AS [GGunSayisi], 
+    [EmanetlerView].[ToplamCeza] AS [ToplamCeza], 
+    [EmanetlerView].[Barkod] AS [Barkod]
+    FROM [dbo].[EmanetlerView] AS [EmanetlerView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="KitaplarView" EntityType="Self.KitaplarView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [KitaplarView].[Durum] AS [Durum], 
+    [KitaplarView].[KitapID] AS [KitapID], 
+    [KitaplarView].[Barkod] AS [Barkod], 
+    [KitaplarView].[KitapAd] AS [KitapAd], 
+    [KitaplarView].[KategoriAd] AS [KategoriAd], 
+    [KitaplarView].[YazarAd] AS [YazarAd], 
+    [KitaplarView].[YazarSoyad] AS [YazarSoyad], 
+    [KitaplarView].[YayineviAd] AS [YayineviAd], 
+    [KitaplarView].[Silindi] AS [Silindi], 
+    [KitaplarView].[KategoriID] AS [KategoriID], 
+    [KitaplarView].[YazarID] AS [YazarID], 
+    [KitaplarView].[YayineviID] AS [YayineviID], 
+    [KitaplarView].[RafNo] AS [RafNo]
+    FROM [dbo].[KitaplarView] AS [KitaplarView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="KullanicilarView" EntityType="Self.KullanicilarView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [KullanicilarView].[KullaniciID] AS [KullaniciID], 
+    [KullanicilarView].[TCKNo] AS [TCKNo], 
+    [KullanicilarView].[KullaniciTuru] AS [KullaniciTuru], 
+    [KullanicilarView].[Ad] AS [Ad], 
+    [KullanicilarView].[Soyad] AS [Soyad], 
+    [KullanicilarView].[TelNo] AS [TelNo], 
+    [KullanicilarView].[Adres] AS [Adres], 
+    [KullanicilarView].[Ilce] AS [Ilce], 
+    [KullanicilarView].[Il] AS [Il], 
+    [KullanicilarView].[Eposta] AS [Eposta], 
+    [KullanicilarView].[Sifre] AS [Sifre], 
+    [KullanicilarView].[KayitTarihi] AS [KayitTarihi], 
+    [KullanicilarView].[Silindi] AS [Silindi]
+    FROM [dbo].[KullanicilarView] AS [KullanicilarView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Cezalar_Emanetler" Association="Self.FK_Cezalar_Emanetler">
+            <End Role="Emanetler" EntitySet="Emanetler" />
+            <End Role="Cezalar" EntitySet="Cezalar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emanetler_Kitaplar" Association="Self.FK_Emanetler_Kitaplar">
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+            <End Role="Emanetler" EntitySet="Emanetler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emanetler_Kullanicilar" Association="Self.FK_Emanetler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Emanetler" EntitySet="Emanetler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kitaplar_Kategoriler" Association="Self.FK_Kitaplar_Kategoriler">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kitaplar_Yayinevleri" Association="Self.FK_Kitaplar_Yayinevleri">
+            <End Role="Yayinevleri" EntitySet="Yayinevleri" />
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kitaplar_Yazarlar" Association="Self.FK_Kitaplar_Yazarlar">
+            <End Role="Yazarlar" EntitySet="Yazarlar" />
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KutuphanemizModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cezalar">
+          <Key>
+            <PropertyRef Name="CezaID" />
+          </Key>
+          <Property Name="CezaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmanetID" Type="Int32" Nullable="false" />
+          <Property Name="BirimCeza" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="GGunSayisi" Type="Int32" Nullable="false" />
+          <Property Name="ToplamCeza" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Silindi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Emanetler" Relationship="Self.FK_Cezalar_Emanetler" FromRole="Cezalar" ToRole="Emanetler" />
+        </EntityType>
+        <EntityType Name="Emanetler">
+          <Key>
+            <PropertyRef Name="EmanetID" />
+          </Key>
+          <Property Name="EmanetID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="KitapID" Type="Int32" Nullable="false" />
+          <Property Name="KVerilisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KIEdilecekTarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KIEdildigiTarih" Type="DateTime" Precision="3" />
+          <Property Name="BirimCeza" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="GGunSayisi" Type="Int32" />
+          <Property Name="ToplamCeza" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Silindi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cezalar" Relationship="Self.FK_Cezalar_Emanetler" FromRole="Emanetler" ToRole="Cezalar" />
+          <NavigationProperty Name="Kitaplar" Relationship="Self.FK_Emanetler_Kitaplar" FromRole="Emanetler" ToRole="Kitaplar" />
+          <NavigationProperty Name="Kullanicilar" Relationship="Self.FK_Emanetler_Kullanicilar" FromRole="Emanetler" ToRole="Kullanicilar" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="KategoriID" />
+          </Key>
+          <Property Name="KategoriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RafNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Kitaplar" Relationship="Self.FK_Kitaplar_Kategoriler" FromRole="Kategoriler" ToRole="Kitaplar" />
+        </EntityType>
+        <EntityType Name="Kitaplar">
+          <Key>
+            <PropertyRef Name="KitapID" />
+          </Key>
+          <Property Name="KitapID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Barkod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KitapAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YayineviID" Type="Int32" Nullable="false" />
+          <Property Name="YazarID" Type="Int32" Nullable="false" />
+          <Property Name="KategoriID" Type="Int32" Nullable="false" />
+          <Property Name="Adet" Type="Int32" Nullable="false" />
+          <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EkTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Silindi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Emanetler" Relationship="Self.FK_Emanetler_Kitaplar" FromRole="Kitaplar" ToRole="Emanetler" />
+          <NavigationProperty Name="Kategoriler" Relationship="Self.FK_Kitaplar_Kategoriler" FromRole="Kitaplar" ToRole="Kategoriler" />
+          <NavigationProperty Name="Yayinevleri" Relationship="Self.FK_Kitaplar_Yayinevleri" FromRole="Kitaplar" ToRole="Yayinevleri" />
+          <NavigationProperty Name="Yazarlar" Relationship="Self.FK_Kitaplar_Yazarlar" FromRole="Kitaplar" ToRole="Yazarlar" />
+        </EntityType>
+        <EntityType Name="Kullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TCKNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KullaniciTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Il" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Silindi" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Emanetler" Relationship="Self.FK_Emanetler_Kullanicilar" FromRole="Kullanicilar" ToRole="Emanetler" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Yayinevleri">
+          <Key>
+            <PropertyRef Name="YayineviID" />
+          </Key>
+          <Property Name="YayineviID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YayineviAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Kitaplar" Relationship="Self.FK_Kitaplar_Yayinevleri" FromRole="Yayinevleri" ToRole="Kitaplar" />
+        </EntityType>
+        <EntityType Name="Yazarlar">
+          <Key>
+            <PropertyRef Name="YazarID" />
+          </Key>
+          <Property Name="YazarID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YazarAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YazarSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Kitaplar" Relationship="Self.FK_Kitaplar_Yazarlar" FromRole="Yazarlar" ToRole="Kitaplar" />
+        </EntityType>
+        <EntityType Name="EmanetlerView">
+          <Key>
+            <PropertyRef Name="EmanetID" />
+            <PropertyRef Name="KullaniciID" />
+            <PropertyRef Name="KitapID" />
+            <PropertyRef Name="Ad" />
+            <PropertyRef Name="Soyad" />
+            <PropertyRef Name="KategoriAd" />
+            <PropertyRef Name="KitapAd" />
+            <PropertyRef Name="Yazar" />
+            <PropertyRef Name="YayineviAd" />
+            <PropertyRef Name="Silindi" />
+            <PropertyRef Name="KVerilisTarihi" />
+            <PropertyRef Name="KIEdilecekTarih" />
+            <PropertyRef Name="BirimCeza" />
+            <PropertyRef Name="Barkod" />
+          </Key>
+          <Property Name="EmanetID" Type="Int32" Nullable="false" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="KitapID" Type="Int32" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KitapAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Yazar" Type="String" MaxLength="101" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YayineviAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Silindi" Type="Boolean" Nullable="false" />
+          <Property Name="KVerilisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KIEdilecekTarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BirimCeza" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="KIEdildigiTarih" Type="DateTime" Precision="3" />
+          <Property Name="GGunSayisi" Type="Int32" />
+          <Property Name="ToplamCeza" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Barkod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KitaplarView">
+          <Key>
+            <PropertyRef Name="Durum" />
+            <PropertyRef Name="KitapID" />
+            <PropertyRef Name="Barkod" />
+            <PropertyRef Name="KitapAd" />
+            <PropertyRef Name="KategoriAd" />
+            <PropertyRef Name="YazarAd" />
+            <PropertyRef Name="YazarSoyad" />
+            <PropertyRef Name="YayineviAd" />
+            <PropertyRef Name="Silindi" />
+            <PropertyRef Name="KategoriID" />
+            <PropertyRef Name="YazarID" />
+            <PropertyRef Name="YayineviID" />
+            <PropertyRef Name="RafNo" />
+          </Key>
+          <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KitapID" Type="Int32" Nullable="false" />
+          <Property Name="Barkod" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KitapAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KategoriAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YazarAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YazarSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="YayineviAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Silindi" Type="Boolean" Nullable="false" />
+          <Property Name="KategoriID" Type="Int32" Nullable="false" />
+          <Property Name="YazarID" Type="Int32" Nullable="false" />
+          <Property Name="YayineviID" Type="Int32" Nullable="false" />
+          <Property Name="RafNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="KullanicilarView">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+            <PropertyRef Name="TCKNo" />
+            <PropertyRef Name="KullaniciTuru" />
+            <PropertyRef Name="Ad" />
+            <PropertyRef Name="Soyad" />
+            <PropertyRef Name="TelNo" />
+            <PropertyRef Name="Adres" />
+            <PropertyRef Name="Ilce" />
+            <PropertyRef Name="Il" />
+            <PropertyRef Name="Eposta" />
+            <PropertyRef Name="Sifre" />
+            <PropertyRef Name="KayitTarihi" />
+            <PropertyRef Name="Silindi" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TCKNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KullaniciTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TelNo" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ilce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Il" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KayitTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Silindi" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Cezalar_Emanetler">
+          <End Role="Emanetler" Type="Self.Emanetler" Multiplicity="1" />
+          <End Role="Cezalar" Type="Self.Cezalar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Emanetler">
+              <PropertyRef Name="EmanetID" />
+            </Principal>
+            <Dependent Role="Cezalar">
+              <PropertyRef Name="EmanetID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emanetler_Kitaplar">
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="1" />
+          <End Role="Emanetler" Type="Self.Emanetler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kitaplar">
+              <PropertyRef Name="KitapID" />
+            </Principal>
+            <Dependent Role="Emanetler">
+              <PropertyRef Name="KitapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Emanetler_Kullanicilar">
+          <End Role="Kullanicilar" Type="Self.Kullanicilar" Multiplicity="1" />
+          <End Role="Emanetler" Type="Self.Emanetler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanicilar">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Emanetler">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kitaplar_Kategoriler">
+          <End Role="Kategoriler" Type="Self.Kategoriler" Multiplicity="1" />
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoriler">
+              <PropertyRef Name="KategoriID" />
+            </Principal>
+            <Dependent Role="Kitaplar">
+              <PropertyRef Name="KategoriID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kitaplar_Yayinevleri">
+          <End Role="Yayinevleri" Type="Self.Yayinevleri" Multiplicity="1" />
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yayinevleri">
+              <PropertyRef Name="YayineviID" />
+            </Principal>
+            <Dependent Role="Kitaplar">
+              <PropertyRef Name="YayineviID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Kitaplar_Yazarlar">
+          <End Role="Yazarlar" Type="Self.Yazarlar" Multiplicity="1" />
+          <End Role="Kitaplar" Type="Self.Kitaplar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Yazarlar">
+              <PropertyRef Name="YazarID" />
+            </Principal>
+            <Dependent Role="Kitaplar">
+              <PropertyRef Name="YazarID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KutuphanemizEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cezalar" EntityType="Self.Cezalar" />
+          <EntitySet Name="Emanetler" EntityType="Self.Emanetler" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+          <EntitySet Name="Kitaplar" EntityType="Self.Kitaplar" />
+          <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Yayinevleri" EntityType="Self.Yayinevleri" />
+          <EntitySet Name="Yazarlar" EntityType="Self.Yazarlar" />
+          <EntitySet Name="EmanetlerView" EntityType="Self.EmanetlerView" />
+          <EntitySet Name="KitaplarView" EntityType="Self.KitaplarView" />
+          <EntitySet Name="KullanicilarView" EntityType="Self.KullanicilarView" />
+          <AssociationSet Name="FK_Cezalar_Emanetler" Association="Self.FK_Cezalar_Emanetler">
+            <End Role="Emanetler" EntitySet="Emanetler" />
+            <End Role="Cezalar" EntitySet="Cezalar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emanetler_Kitaplar" Association="Self.FK_Emanetler_Kitaplar">
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+            <End Role="Emanetler" EntitySet="Emanetler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Emanetler_Kullanicilar" Association="Self.FK_Emanetler_Kullanicilar">
+            <End Role="Kullanicilar" EntitySet="Kullanicilar" />
+            <End Role="Emanetler" EntitySet="Emanetler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kitaplar_Kategoriler" Association="Self.FK_Kitaplar_Kategoriler">
+            <End Role="Kategoriler" EntitySet="Kategoriler" />
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kitaplar_Yayinevleri" Association="Self.FK_Kitaplar_Yayinevleri">
+            <End Role="Yayinevleri" EntitySet="Yayinevleri" />
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Kitaplar_Yazarlar" Association="Self.FK_Kitaplar_Yazarlar">
+            <End Role="Yazarlar" EntitySet="Yazarlar" />
+            <End Role="Kitaplar" EntitySet="Kitaplar" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KutuphanemizModelStoreContainer" CdmEntityContainer="KutuphanemizEntities">
+          <EntitySetMapping Name="Cezalar">
+            <EntityTypeMapping TypeName="KutuphanemizModel.Cezalar">
+              <MappingFragment StoreEntitySet="Cezalar">
+                <ScalarProperty Name="CezaID" ColumnName="CezaID" />
+                <ScalarProperty Name="EmanetID" ColumnName="EmanetID" />
+                <ScalarProperty Name="BirimCeza" ColumnName="BirimCeza" />
+                <ScalarProperty Name="GGunSayisi" ColumnName="GGunSayisi" />
+                <ScalarProperty Name="ToplamCeza" ColumnName="ToplamCeza" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Emanetler">
+            <EntityTypeMapping TypeName="KutuphanemizModel.Emanetler">
+              <MappingFragment StoreEntitySet="Emanetler">
+                <ScalarProperty Name="EmanetID" ColumnName="EmanetID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KitapID" ColumnName="KitapID" />
+                <ScalarProperty Name="KVerilisTarihi" ColumnName="KVerilisTarihi" />
+                <ScalarProperty Name="KIEdilecekTarih" ColumnName="KIEdilecekTarih" />
+                <ScalarProperty Name="KIEdildigiTarih" ColumnName="KIEdildigiTarih" />
+                <ScalarProperty Name="BirimCeza" ColumnName="BirimCeza" />
+                <ScalarProperty Name="GGunSayisi" ColumnName="GGunSayisi" />
+                <ScalarProperty Name="ToplamCeza" ColumnName="ToplamCeza" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="KutuphanemizModel.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+                <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+                <ScalarProperty Name="RafNo" ColumnName="RafNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kitaplar">
+            <EntityTypeMapping TypeName="KutuphanemizModel.Kitaplar">
+              <MappingFragment StoreEntitySet="Kitaplar">
+                <ScalarProperty Name="KitapID" ColumnName="KitapID" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="KitapAd" ColumnName="KitapAd" />
+                <ScalarProperty Name="YayineviID" ColumnName="YayineviID" />
+                <ScalarProperty Name="YazarID" ColumnName="YazarID" />
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+                <ScalarProperty Name="Adet" ColumnName="Adet" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="EkTarihi" ColumnName="EkTarihi" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanicilar">
+            <EntityTypeMapping TypeName="KutuphanemizModel.Kullanicilar">
+              <MappingFragment StoreEntitySet="Kullanicilar">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="TCKNo" ColumnName="TCKNo" />
+                <ScalarProperty Name="KullaniciTuru" ColumnName="KullaniciTuru" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+                <ScalarProperty Name="Il" ColumnName="Il" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="KutuphanemizModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yayinevleri">
+            <EntityTypeMapping TypeName="KutuphanemizModel.Yayinevleri">
+              <MappingFragment StoreEntitySet="Yayinevleri">
+                <ScalarProperty Name="YayineviID" ColumnName="YayineviID" />
+                <ScalarProperty Name="YayineviAd" ColumnName="YayineviAd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Yazarlar">
+            <EntityTypeMapping TypeName="KutuphanemizModel.Yazarlar">
+              <MappingFragment StoreEntitySet="Yazarlar">
+                <ScalarProperty Name="YazarID" ColumnName="YazarID" />
+                <ScalarProperty Name="YazarAd" ColumnName="YazarAd" />
+                <ScalarProperty Name="YazarSoyad" ColumnName="YazarSoyad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmanetlerView">
+            <EntityTypeMapping TypeName="KutuphanemizModel.EmanetlerView">
+              <MappingFragment StoreEntitySet="EmanetlerView">
+                <ScalarProperty Name="EmanetID" ColumnName="EmanetID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KitapID" ColumnName="KitapID" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+                <ScalarProperty Name="KitapAd" ColumnName="KitapAd" />
+                <ScalarProperty Name="Yazar" ColumnName="Yazar" />
+                <ScalarProperty Name="YayineviAd" ColumnName="YayineviAd" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+                <ScalarProperty Name="KVerilisTarihi" ColumnName="KVerilisTarihi" />
+                <ScalarProperty Name="KIEdilecekTarih" ColumnName="KIEdilecekTarih" />
+                <ScalarProperty Name="BirimCeza" ColumnName="BirimCeza" />
+                <ScalarProperty Name="KIEdildigiTarih" ColumnName="KIEdildigiTarih" />
+                <ScalarProperty Name="GGunSayisi" ColumnName="GGunSayisi" />
+                <ScalarProperty Name="ToplamCeza" ColumnName="ToplamCeza" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KitaplarView">
+            <EntityTypeMapping TypeName="KutuphanemizModel.KitaplarView">
+              <MappingFragment StoreEntitySet="KitaplarView">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="KitapID" ColumnName="KitapID" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="KitapAd" ColumnName="KitapAd" />
+                <ScalarProperty Name="KategoriAd" ColumnName="KategoriAd" />
+                <ScalarProperty Name="YazarAd" ColumnName="YazarAd" />
+                <ScalarProperty Name="YazarSoyad" ColumnName="YazarSoyad" />
+                <ScalarProperty Name="YayineviAd" ColumnName="YayineviAd" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+                <ScalarProperty Name="YazarID" ColumnName="YazarID" />
+                <ScalarProperty Name="YayineviID" ColumnName="YayineviID" />
+                <ScalarProperty Name="RafNo" ColumnName="RafNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KullanicilarView">
+            <EntityTypeMapping TypeName="KutuphanemizModel.KullanicilarView">
+              <MappingFragment StoreEntitySet="KullanicilarView">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="TCKNo" ColumnName="TCKNo" />
+                <ScalarProperty Name="KullaniciTuru" ColumnName="KullaniciTuru" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="Soyad" ColumnName="Soyad" />
+                <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+                <ScalarProperty Name="Il" ColumnName="Il" />
+                <ScalarProperty Name="Eposta" ColumnName="Eposta" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Silindi" ColumnName="Silindi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

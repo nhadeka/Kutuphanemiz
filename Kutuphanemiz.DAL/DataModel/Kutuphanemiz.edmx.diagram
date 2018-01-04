@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="492053107f564604a449ed73fae64967" Name="Diagram1">
+        <EntityTypeShape EntityType="KutuphanemizModel.Cezalar" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.Emanetler" Width="1.5" PointX="5.25" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.Kategoriler" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.Kitaplar" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.Kullanicilar" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.Yayinevleri" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.Yazarlar" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.EmanetlerView" Width="1.5" PointX="7.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.KitaplarView" Width="1.5" PointX="9.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="KutuphanemizModel.KullanicilarView" Width="1.5" PointX="9.75" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="KutuphanemizModel.FK_Cezalar_Emanetler" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphanemizModel.FK_Emanetler_Kitaplar" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphanemizModel.FK_Emanetler_Kullanicilar" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphanemizModel.FK_Kitaplar_Kategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphanemizModel.FK_Kitaplar_Yayinevleri" ManuallyRouted="false" />
+        <AssociationConnector Association="KutuphanemizModel.FK_Kitaplar_Yazarlar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

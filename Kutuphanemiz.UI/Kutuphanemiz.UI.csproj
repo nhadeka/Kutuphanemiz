@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F87875C6-5743-4CA6-AA6A-43EEDB3B73BF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kutuphanemiz.UI</RootNamespace>
+    <AssemblyName>Kutuphanemiz.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\FrmAdminAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAdminAnasayfa.Designer.cs">
+      <DependentUpon>FrmAdminAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmArsiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmArsiv.Designer.cs">
+      <DependentUpon>FrmArsiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAyarlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAyarlar.Designer.cs">
+      <DependentUpon>FrmAyarlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmEmanetlerRapor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEmanetlerRapor.Designer.cs">
+      <DependentUpon>FrmEmanetlerRapor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKitapAra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKitapAra.Designer.cs">
+      <DependentUpon>FrmKitapAra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKitapEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKitapEkle.Designer.cs">
+      <DependentUpon>FrmKitapEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKitapGeriAl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKitapGeriAl.Designer.cs">
+      <DependentUpon>FrmKitapGeriAl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKitapGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKitapGuncelle.Designer.cs">
+      <DependentUpon>FrmKitapGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKitapIslem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKitapIslem.Designer.cs">
+      <DependentUpon>FrmKitapIslem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKitaplarRapor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKitaplarRapor.Designer.cs">
+      <DependentUpon>FrmKitaplarRapor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKitapVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKitapVer.Designer.cs">
+      <DependentUpon>FrmKitapVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciBilgi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciBilgi.Designer.cs">
+      <DependentUpon>FrmKullaniciBilgi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciEkle.Designer.cs">
+      <DependentUpon>FrmKullaniciEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciGecmisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciGecmisi.Designer.cs">
+      <DependentUpon>FrmKullaniciGecmisi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciGuncelle.Designer.cs">
+      <DependentUpon>FrmKullaniciGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciIslem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullaniciIslem.Designer.cs">
+      <DependentUpon>FrmKullaniciIslem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmKullanicilarRapor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmKullanicilarRapor.Designer.cs">
+      <DependentUpon>FrmKullanicilarRapor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmOduncKitapIslem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmOduncKitapIslem.Designer.cs">
+      <DependentUpon>FrmOduncKitapIslem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmSifreDegistir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmSifreDegistir.Designer.cs">
+      <DependentUpon>FrmSifreDegistir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUyeAnasayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUyeAnasayfa.Designer.cs">
+      <DependentUpon>FrmUyeAnasayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmUzerimdekiKitaplar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmUzerimdekiKitaplar.Designer.cs">
+      <DependentUpon>FrmUzerimdekiKitaplar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KutuphanemizDataSet.cs">
+      <DependentUpon>KutuphanemizDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="KutuphanemizDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KutuphanemizDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FrmAdminAnasayfa.resx">
+      <DependentUpon>FrmAdminAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmArsiv.resx">
+      <DependentUpon>FrmArsiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmAyarlar.resx">
+      <DependentUpon>FrmAyarlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEmanetlerRapor.resx">
+      <DependentUpon>FrmEmanetlerRapor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKitapAra.resx">
+      <DependentUpon>FrmKitapAra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKitapEkle.resx">
+      <DependentUpon>FrmKitapEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKitapGeriAl.resx">
+      <DependentUpon>FrmKitapGeriAl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKitapGuncelle.resx">
+      <DependentUpon>FrmKitapGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKitapIslem.resx">
+      <DependentUpon>FrmKitapIslem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKitaplarRapor.resx">
+      <DependentUpon>FrmKitaplarRapor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKitapVer.resx">
+      <DependentUpon>FrmKitapVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullaniciBilgi.resx">
+      <DependentUpon>FrmKullaniciBilgi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullaniciEkle.resx">
+      <DependentUpon>FrmKullaniciEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullaniciGecmisi.resx">
+      <DependentUpon>FrmKullaniciGecmisi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullaniciGuncelle.resx">
+      <DependentUpon>FrmKullaniciGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullaniciIslem.resx">
+      <DependentUpon>FrmKullaniciIslem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmKullanicilarRapor.resx">
+      <DependentUpon>FrmKullanicilarRapor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmOduncKitapIslem.resx">
+      <DependentUpon>FrmOduncKitapIslem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmSifreDegistir.resx">
+      <DependentUpon>FrmSifreDegistir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUyeAnasayfa.resx">
+      <DependentUpon>FrmUyeAnasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmUzerimdekiKitaplar.resx">
+      <DependentUpon>FrmUzerimdekiKitaplar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Report1.rdlc" />
+    <EmbeddedResource Include="Forms\Report2.rdlc" />
+    <EmbeddedResource Include="Forms\Report3.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="KutuphanemizDataSet.xsc">
+      <DependentUpon>KutuphanemizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="KutuphanemizDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>KutuphanemizDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="KutuphanemizDataSet.xss">
+      <DependentUpon>KutuphanemizDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Kutuphanemiz.BLL\Kutuphanemiz.BLL.csproj">
+      <Project>{2955CFC8-A8F8-4449-B112-817CEB326C70}</Project>
+      <Name>Kutuphanemiz.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Kutuphanemiz.DAL\Kutuphanemiz.DAL.csproj">
+      <Project>{759F6B27-7C2E-4511-B3D6-9CD500EBFD7A}</Project>
+      <Name>Kutuphanemiz.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
